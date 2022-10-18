@@ -55,6 +55,6 @@ func RunRoute(db *sql.DB) {
 		ReadTimeout:  15 * time.Second,
 	}
 	log.Println("Server aktif di http://127.0.0.1" + PORT)
-	log.Println("Tekan CTRL+C untuk keluar")
+	log.Println("Tekan CTRL + C untuk keluar")
 	log.Fatal(srv.ListenAndServe())
 }
