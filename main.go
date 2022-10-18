@@ -29,9 +29,6 @@ func main() {
 	}
 	defer db.Close()
 	err = db.Ping()
-	if err != nil {
-		panic(err)
-	}
 	fmt.Println("Sukses Koneksi Ke Database")
 	router.RunRoute(db)
 

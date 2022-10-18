@@ -46,14 +46,15 @@ func RunRoute(db *sql.DB) {
 	route.Handle("/sosialmedias", middleware.Auth(http.HandlerFunc(sosialmediaHandler.SosialMedia))).Methods("POST")
 	route.Handle("/sosialmedias/{id}", middleware.Auth(http.HandlerFunc(sosialmediaHandler.SosialMedia))).Methods("PUT")
 	route.Handle("/sosialmedias/{id}", middleware.Auth(http.HandlerFunc(sosialmediaHandler.SosialMedia))).Methods("DELETE")
-	log.Println("Server aktif di http://127.0.0.1" + PORT)
-	log.Println("Tekan CTRL+C untuk keluar")
+
+	//server aktif
 	srv := &http.Server{
 		Handler:      route,
 		Addr:         "0.0.0.0" + PORT,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-
+	log.Println("Server aktif di http://127.0.0.1" + PORT)
+	log.Println("Tekan CTRL+C untuk keluar")
 	log.Fatal(srv.ListenAndServe())
 }
